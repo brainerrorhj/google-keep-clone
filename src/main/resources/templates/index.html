@@ -1,0 +1,53 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Keep</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Đảm bảo đường dẫn đúng tới file styles.css -->
+    <style>
+        /* CSS cho ghi chú thu gọn và mở rộng */
+        .note-content {
+            max-height: 50px; /* Giới hạn chiều cao khi thu gọn */
+            overflow: hidden; /* Ẩn nội dung thừa */
+            transition: max-height 0.3s ease; /* Hiệu ứng chuyển tiếp */
+        }
+        .note-content.expanded {
+            max-height: 500px; /* Chiều cao khi mở rộng */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Java Keep</h1>
+            <button onclick="showNoteForm()">Thêm ghi chú</button>
+        </header>
+
+        <!-- Form để thêm ghi chú mới -->
+        <div id="note-form" class="note-form" style="display: none;">
+            <label for="note-title">Tiêu đề:</label>
+            <input type="text" id="note-title" placeholder="Tiêu đề" required>
+            <label for="note-content">Nội dung:</label>
+            <textarea id="note-content" placeholder="Nội dung" maxlength="10000" required></textarea>
+            <label for="note-image">Hình ảnh:</label>
+            <input type="file" id="note-image" accept="image/*">
+            <div class="form-buttons">
+                <button id="save-button" onclick="saveNote()">Lưu ghi chú</button>
+                <button id="cancel-button" onclick="hideNoteForm()">Hủy</button>
+            </div>
+        </div>
+
+        <!-- Container để hiển thị danh sách ghi chú -->
+        <div class="notes-list" id="notes-list">
+            <!-- Các ghi chú sẽ được hiển thị ở đây thông qua JavaScript -->
+        </div>
+    </div>
+
+    <!-- Liên kết tới app.js -->
+    <script src="/js/app.js"></script> <!-- Đảm bảo đường dẫn đúng tới app.js -->
+</body>
+</html>
